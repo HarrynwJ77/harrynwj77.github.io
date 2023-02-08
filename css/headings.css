@@ -1,0 +1,12 @@
+siteheader {
+    background-color: #bababa;
+    position: sticky;
+    top: 0;
+    padding: 10%;
+}
+
+siteheader_text {
+    text-align: center;
+    font-size: 25px;
+    color: #333333;
+}
