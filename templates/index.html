@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="../css/headings.css">
+    </head>
+<body>
+    <div class="dropdown">
+        <button class="dropbtn">Dropdown</button>
+            <div class="dropdown-content">
+                {% for item in data %}
+                    <a class="btn">{{item}}</a>
+                {% endfor %}
+            </div>
+    </div>
+</body>
+</html>
