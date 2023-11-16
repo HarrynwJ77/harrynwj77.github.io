@@ -1,15 +1,24 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="../css/headings.css">
+        <link rel="stylesheet" href="style.css">
+        <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+        <script>
+            function select_option(option) {
+                $.ajax({
+                    type: 'POST',
+                    url: 'http://localhost:5000/recieve_id',
+                    data: option,
+                });
+            }
+        </script>
     </head>
 <body>
-    <div class="title">Hello</div>
     <div class="dropdown">
         <button class="dropbtn">Dropdown</button>
             <div class="dropdown-content">
-                {% for item in data %}
-                    <a class="btn">{{item}}</a>
+                {% for option in options %}
+                    <button onclick = "select_option({{option['path']}})">{{option['name']}}</button>
                 {% endfor %}
             </div>
     </div>
