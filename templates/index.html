@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <link rel="stylesheet" href="style.css">
+        <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='style.css') }}">
         <script type="text/javascript" src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
         <script>
-            function select_option(option) {
+            function select_option(req_type) {
                 $.ajax({
                     type: 'POST',
-                    url: 'http://localhost:5000/recieve_id',
-                    data: option,
+                    url: 'http://localhost:5000/receive_request',
+                    data: {name: req_type.id},
                 });
             }
         </script>
@@ -18,7 +18,7 @@
         <button class="dropbtn">Dropdown</button>
             <div class="dropdown-content">
                 {% for option in options %}
-                    <button onclick = "select_option({{option['path']}})">{{option['name']}}</button>
+                    <a onclick="select_option({{option['path']}})" id="{{option['path']}}">{{option['name']}}</a>
                 {% endfor %}
             </div>
     </div>
